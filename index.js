@@ -116,3 +116,22 @@ app.get("/create", (req, res) => {
   createImageWithText(headlines);
   console.log("Image Created Successfully");
 });
+
+app.get("/latest-image", async (req, res) => {
+  try {
+    // Query the database to find the latest image
+    const latestImage = await Image.findOne().sort({ _id: -1 });
+
+    if (!latestImage) {
+      // If no image is found, return an error response
+      return res.status(404).json({ message: "No images found" });
+    }
+
+    // Send the latest image as a response
+    res.setHeader("Content-Type", latestImage.contentType);
+    res.send(latestImage.data);
+  } catch (error) {
+    console.error("Error fetching latest image:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
