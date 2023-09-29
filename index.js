@@ -104,6 +104,9 @@ async function createImageWithText(headlines) {
 }
 
 app.get("/", (req, res) => {
+  console.log("Welcome");
+});
+app.get("/create", (req, res) => {
   const headlines = [
     "1. Breaking News: Scientists Discover New Planet",
     "2. Economic Growth Continues Despite Challenges",
