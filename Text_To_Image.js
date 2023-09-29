@@ -1,5 +1,6 @@
 const { createCanvas } = require("canvas");
 const sharp = require("sharp");
+const Image = require("./Image");
 async function createImageWithText(headlines) {
   // Create a canvas with a 2000x2000 resolution
   const canvasWidth = 2000;
