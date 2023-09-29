@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-//const { createImageWithText } = require("./Text_To_Image");
+const { createImageWithText } = require("./Text_To_Image");
 
 dotenv.config();
 
@@ -34,5 +34,6 @@ app.get("/", (req, res) => {
     "3. Tech Giant Unveils Latest Innovation",
     "4. This is a very long headline that should wrap to the next line because it exceeds 60 characters.because it exceeds 60 characters.ine because it exceeds 60 characters.because it exceeds 60 characters",
   ];
-  //createImageWithText(headlines);
+  createImageWithText(headlines);
+  console.log("Image Created Successfully");
 });
